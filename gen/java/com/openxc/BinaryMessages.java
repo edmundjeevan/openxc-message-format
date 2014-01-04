@@ -902,15 +902,15 @@ public final class BinaryMessages {
      */
     int getMessageId();
 
-    // optional uint64 data = 3;
+    // optional bytes data = 3;
     /**
-     * <code>optional uint64 data = 3;</code>
+     * <code>optional bytes data = 3;</code>
      */
     boolean hasData();
     /**
-     * <code>optional uint64 data = 3;</code>
+     * <code>optional bytes data = 3;</code>
      */
-    long getData();
+    com.google.protobuf.ByteString getData();
   }
   /**
    * Protobuf type {@code openxc.RawMessage}
@@ -973,9 +973,9 @@ public final class BinaryMessages {
               messageId_ = input.readUInt32();
               break;
             }
-            case 24: {
+            case 26: {
               bitField0_ |= 0x00000004;
-              data_ = input.readUInt64();
+              data_ = input.readBytes();
               break;
             }
           }
@@ -1050,26 +1050,26 @@ public final class BinaryMessages {
       return messageId_;
     }
 
-    // optional uint64 data = 3;
+    // optional bytes data = 3;
     public static final int DATA_FIELD_NUMBER = 3;
-    private long data_;
+    private com.google.protobuf.ByteString data_;
     /**
-     * <code>optional uint64 data = 3;</code>
+     * <code>optional bytes data = 3;</code>
      */
     public boolean hasData() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional uint64 data = 3;</code>
+     * <code>optional bytes data = 3;</code>
      */
-    public long getData() {
+    public com.google.protobuf.ByteString getData() {
       return data_;
     }
 
     private void initFields() {
       bus_ = 0;
       messageId_ = 0;
-      data_ = 0L;
+      data_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1090,7 +1090,7 @@ public final class BinaryMessages {
         output.writeUInt32(2, messageId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeUInt64(3, data_);
+        output.writeBytes(3, data_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1111,7 +1111,7 @@ public final class BinaryMessages {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(3, data_);
+          .computeBytesSize(3, data_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1233,7 +1233,7 @@ public final class BinaryMessages {
         bitField0_ = (bitField0_ & ~0x00000001);
         messageId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        data_ = 0L;
+        data_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -1393,35 +1393,38 @@ public final class BinaryMessages {
         return this;
       }
 
-      // optional uint64 data = 3;
-      private long data_ ;
+      // optional bytes data = 3;
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional uint64 data = 3;</code>
+       * <code>optional bytes data = 3;</code>
        */
       public boolean hasData() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional uint64 data = 3;</code>
+       * <code>optional bytes data = 3;</code>
        */
-      public long getData() {
+      public com.google.protobuf.ByteString getData() {
         return data_;
       }
       /**
-       * <code>optional uint64 data = 3;</code>
+       * <code>optional bytes data = 3;</code>
        */
-      public Builder setData(long value) {
-        bitField0_ |= 0x00000004;
+      public Builder setData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint64 data = 3;</code>
+       * <code>optional bytes data = 3;</code>
        */
       public Builder clearData() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        data_ = 0L;
+        data_ = getDefaultInstance().getData();
         onChanged();
         return this;
       }
@@ -2782,7 +2785,7 @@ public final class BinaryMessages {
       "ssage\0225\n\022translated_message\030\003 \001(\0132\031.open" +
       "xc.TranslatedMessage\"\037\n\004Type\022\007\n\003RAW\020\001\022\016\n" +
       "\nTRANSLATED\020\002\";\n\nRawMessage\022\013\n\003bus\030\001 \001(\005" +
-      "\022\022\n\nmessage_id\030\002 \001(\r\022\014\n\004data\030\003 \001(\004\"\265\002\n\021T" +
+      "\022\022\n\nmessage_id\030\002 \001(\r\022\014\n\004data\030\003 \001(\014\"\265\002\n\021T" +
       "ranslatedMessage\022,\n\004type\030\001 \001(\0162\036.openxc." +
       "TranslatedMessage.Type\022\014\n\004name\030\002 \001(\t\022\024\n\014" +
       "string_value\030\003 \001(\t\022\025\n\rnumeric_value\030\004 \001(",

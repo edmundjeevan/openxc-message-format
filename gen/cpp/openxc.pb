@@ -14,7 +14,7 @@ RawMessage
 bus (
 
 message_id (
-data ("µ
+data ("µ
 TranslatedMessage,
 type (2.openxc.TranslatedMessage.Type
 name (	
